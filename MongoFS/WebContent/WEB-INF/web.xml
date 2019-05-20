@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>MongoFS</display-name>
+	<servlet>
+		<description>
+		</description>
+		<display-name>MongoFileServlet</display-name>
+		<servlet-name>MongoFileServlet</servlet-name>
+		<servlet-class>ss.MongoFileServlet</servlet-class>
+		<init-param>
+			<description>Mongo Server Url</description>
+			<param-name>mongoserver</param-name>
+			<param-value>localhost</param-value>
+		</init-param>
+		<init-param>
+			<description>Mongo Server Port (default 27017)</description>
+			<param-name>mongoport</param-name>
+			<param-value>27017</param-value>
+		</init-param>
+		<init-param>
+			<description>Mongo Database Name</description>
+			<param-name>mongodb</param-name>
+			<param-value>infopoint</param-value>
+		</init-param>
+		<init-param>
+			<description>Mongo User</description>
+			<param-name>mongouser</param-name>
+			<param-value>wso2</param-value>
+		</init-param>
+		<init-param>
+			<description>Mongo Pass</description>
+			<param-name>mongopass</param-name>
+			<param-value>wso2</param-value>
+		</init-param>
+		<init-param>
+			<description>Mongo File Bucket</description>
+			<param-name>mongobucket</param-name>
+			<param-value>photo</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>MongoProxy</display-name>
+		<servlet-name>MongoProxy</servlet-name>
+		<servlet-class>ss.MongoProxy</servlet-class>
+		<init-param>
+			<description>Mongo Server Url</description>
+			<param-name>mongoserver</param-name>
+			<param-value>localhost</param-value>
+		</init-param>
+		<init-param>
+			<description>Mongo Server Port (default 27017)</description>
+			<param-name>mongoport</param-name>
+			<param-value>27017</param-value>
+		</init-param>
+		<init-param>
+			<description>Mongo Database Name</description>
+			<param-name>mongodb</param-name>
+			<param-value>infopoint</param-value>
+		</init-param>
+		<init-param>
+			<description>Mongo User</description>
+			<param-name>mongouser</param-name>
+			<param-value>wso2</param-value>
+		</init-param>
+		<init-param>
+			<description>Mongo Pass</description>
+			<param-name>mongopass</param-name>
+			<param-value>wso2</param-value>
+		</init-param>		
+		<init-param>
+			<description>Posts collection name</description>
+			<param-name>postscollection</param-name>
+			<param-value>posts</param-value>		
+		</init-param>
+		<init-param>
+			<description>Config collection name</description>
+			<param-name>devicescollection</param-name>
+			<param-value>devices</param-value>		
+		</init-param>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ManagementServlet</display-name>
+		<servlet-name>ManagementServlet</servlet-name>
+		<servlet-class>ss.ManagementServlet</servlet-class>
+		<init-param>
+			<description>SSH Accept fingerprint</description>
+			<param-name>storekey</param-name>
+			<param-value>c:\windows\system32\cmd /c echo y | d:\appls\Java\plink.exe -ssh %s -l root -i D:\Appls\Java\iprsakey\Ip-private.ppk exit</param-value>		
+		</init-param>
+		<init-param>
+			<description>Raspi reboot command</description>
+			<param-name>restartcmd</param-name>
+			<param-value>d:\appls\Java\plink.exe -ssh %s -l root -i D:\Appls\Java\iprsakey\Ip-private.ppk reboot</param-value>		
+		</init-param>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>FileUpload</display-name>
+		<servlet-name>FileUpload</servlet-name>
+		<servlet-class>ss.FileUpload</servlet-class>
+		<init-param>
+			<description>FFMpeg path</description>
+			<param-name>ffmpegExe</param-name>
+			<param-value>d:\Appls\Java\ffmpeg.exe</param-value>		
+		</init-param>
+		<init-param>
+			<description>Media Path</description>
+			<param-name>mediaPath</param-name>
+			<param-value>d:\Appls\Java\wso2as-5.2.1\repository\deployment\server\webapps\infopoint\media\</param-value>		
+		</init-param>		
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>StatsServlet</display-name>
+		<servlet-name>StatsServlet</servlet-name>
+		<servlet-class>ss.StatsServlet</servlet-class>
+		<init-param>
+			<description>Stats Path</description>
+			<param-name>statsPath</param-name>
+			<param-value>d:\Appls\Java\wso2as-5.2.1\repository\deployment\server\webapps\infopoint\media\stats\</param-value>		
+		</init-param>		
+	</servlet>		
+	<servlet-mapping>
+		<servlet-name>MongoFileServlet</servlet-name>
+		<url-pattern>/files/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MongoProxy</servlet-name>
+		<url-pattern>/posts</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ManagementServlet</servlet-name>
+		<url-pattern>/manage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FileUpload</servlet-name>
+		<url-pattern>/fileupload</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>StatsServlet</servlet-name>
+		<url-pattern>/stats/*</url-pattern>
+	</servlet-mapping>	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

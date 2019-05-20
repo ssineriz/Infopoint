@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="var" path="ECLIPSE_WORKSPACE/.metadata/.plugins/org.wso2.developerstudio.eclipse.libraries/lib/synapse-core_2.1.2.wso2v2.jar"/>
+	<classpathentry kind="var" path="ECLIPSE_WORKSPACE/.metadata/.plugins/org.wso2.developerstudio.eclipse.libraries/lib/synapse-commons_2.1.2.wso2v2.jar"/>
+	<classpathentry kind="var" path="ECLIPSE_WORKSPACE/.metadata/.plugins/org.wso2.developerstudio.eclipse.libraries/lib/synapse-tasks_2.1.2.wso2v2.jar"/>
+	<classpathentry kind="var" path="ECLIPSE_WORKSPACE/.metadata/.plugins/org.wso2.developerstudio.eclipse.libraries/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
+	<classpathentry kind="var" path="ECLIPSE_WORKSPACE/.metadata/.plugins/org.wso2.developerstudio.eclipse.libraries/lib/commons-httpclient_3.1.0.wso2v2.jar"/>
+	<classpathentry kind="var" path="ECLIPSE_WORKSPACE/.metadata/.plugins/org.wso2.developerstudio.eclipse.libraries/lib/httpcore_4.3.0.wso2v1.jar"/>
+	<classpathentry kind="var" path="ECLIPSE_WORKSPACE/.metadata/.plugins/org.wso2.developerstudio.eclipse.libraries/lib/jackson-core-lgpl-1.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/wso2as-5.2.1/repository/components/plugins/httpclient_4.2.5.wso2v1.jar"/>
+	<classpathentry kind="lib" path="lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/mongo-java-driver-2.9.3.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Java/ScrapSocials/lib/twitter4j-core-4.0.6.jar"/>
+	<classpathentry kind="var" path="ECLIPSE_WORKSPACE/.metadata/.plugins/org.wso2.developerstudio.eclipse.libraries/lib/commons-codec_1.4.0.wso2v1.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Java/libs/jave-1.0.2/jave-1.0.2/jave-1.0.2.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Java/libs/qrgen/core/2.1.0/core-2.1.0.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Java/libs/qrgen/javase/2.1.0/javase-2.1.0.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Java/libs/zxing/core/3.1.0/core-3.1.0.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Java/libs/zxing/javase/3.1.0/javase-3.1.0.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Java/ScrapSocials/lib/jsoup-1.8.3.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Java/libs/xuggle-xuggler-5.4.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

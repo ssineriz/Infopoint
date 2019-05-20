@@ -1,0 +1,9 @@
+dict
+jd-gui*
+*.zip
+/libs*
+.metadata
+RemoteSystemsTempFiles
+ScrapSocials/lib
+*/bin/*
+*.class

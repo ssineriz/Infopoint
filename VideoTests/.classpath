@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
+	<classpathentry kind="lib" path="D:/wso2as-5.2.1/repository/components/plugins/httpclient_4.2.5.wso2v1.jar"/>
+	<classpathentry kind="var" path="ECLIPSE_WORKSPACE/.metadata/.plugins/org.wso2.developerstudio.eclipse.libraries/lib/httpcore_4.3.0.wso2v1.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Java/libs/jave-1.0.2/jave-1.0.2/jave-1.0.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
