@@ -22,11 +22,6 @@ import com.mongodb.DBObject;
 
 public class TwitterRetriever extends ChannelRetriever {
 
-	// user: @tenarisapp // newsaggregator@tenaris.com // tenaris014
-	private static final String TWITTER_CONSUMER_KEY = "xvPcTqEVpCflkYToWQIctIsKc";
-	private static final String TWITTER_SECRET_KEY = "AGmyqroMdfM22YcDco0w4ETgp8vrzICg91BqjhR1OGtoJfriro";
-	private static final String TWITTER_ACCESS_TOKEN = "2849951645-y7MjGLZNa6TTgvnNPphdCeIbOrmFYZUC9bmCXBb";
-	private static final String TWITTER_ACCESS_TOKEN_SECRET = "p7p39Vq2wB3zrEqNCeTzG92gT4iGUrsnr3yDMO7Fj6AuU";
 	
 	public TwitterRetriever(String channel, String channelId, String channelName){
 		super(channel, channelId, channelName);
@@ -38,10 +33,10 @@ public class TwitterRetriever extends ChannelRetriever {
 
     	ConfigurationBuilder cb = new ConfigurationBuilder();
     	cb.setDebugEnabled(true)
-    	    .setOAuthConsumerKey(TWITTER_CONSUMER_KEY)
-    	    .setOAuthConsumerSecret(TWITTER_SECRET_KEY)
-    	    .setOAuthAccessToken(TWITTER_ACCESS_TOKEN)
-    	    .setOAuthAccessTokenSecret(TWITTER_ACCESS_TOKEN_SECRET);
+    	    .setOAuthConsumerKey(Constants.TWITTER_CONSUMER_KEY)
+    	    .setOAuthConsumerSecret(Constants.TWITTER_SECRET_KEY)
+    	    .setOAuthAccessToken(Constants.TWITTER_ACCESS_TOKEN)
+    	    .setOAuthAccessTokenSecret(Constants.TWITTER_ACCESS_TOKEN_SECRET);
     	cb.setTweetModeExtended(true);
     	TwitterFactory tf = new TwitterFactory(cb.build());
     	Twitter twitter = tf.getInstance();

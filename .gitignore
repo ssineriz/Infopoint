@@ -7,3 +7,4 @@ RemoteSystemsTempFiles
 ScrapSocials/lib
 */bin/*
 *.class
+ScrapSocials/src/ss/Constants.java
