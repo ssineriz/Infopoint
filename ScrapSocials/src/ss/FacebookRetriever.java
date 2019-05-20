@@ -17,7 +17,6 @@ import com.mongodb.DBObject;
 
 public class FacebookRetriever extends ChannelRetriever {
 	final String baseUrl = "https://graph.facebook.com/v2.9/";
-	private String token = "1547780018812315|c4ef29c1f58e651aa8cd0d6ac3297cad";
 	private String channelPath;
 
 	
@@ -33,7 +32,7 @@ public class FacebookRetriever extends ChannelRetriever {
 	
     public void execute(ExecutionContext ctx) throws IOException, ClientProtocolException, ParseException {
     	HashMap<String, String> headers = new HashMap<String, String>();
-    	headers.put("Authorization", "Bearer " + token);
+    	headers.put("Authorization", "Bearer " + Constants.FACEBOOK_OAUTH_TOKEN);
     	String fieldNames = "?fields=type,caption,created_time,event,description,picture,id,object_id,link,from,status_type,name,message,source,attachments,updated_time";
     	JSONObject json = getJson(baseUrl + "/" + channelPath + "/posts" + fieldNames, headers);
     	

@@ -18,10 +18,6 @@ public class InstagramRetriever extends ChannelRetriever {
 
 	final String baseUrl = "https://api.instagram.com/v1/";
 
-	// private String token = "3375587e30024f12b0f069f3a752b1ce|dba74d32549e4e6e8c76f851e6880c0f";
-	private String clientId = "e6ca2369750648e3b8dc94fa00aecc96";// "3375587e30024f12b0f069f3a752b1ce";
-	// private CharsetDecoder utf8Decoder = Charset.forName("UTF-8").newDecoder();
-	
 	public InstagramRetriever(String channel, String channelId, String channelName){
 		super(channel, channelId, channelName);
 	   	channelTypeId = 4;
@@ -32,7 +28,7 @@ public class InstagramRetriever extends ChannelRetriever {
 
     	String [] split = channel.split("/");
     	String username = split[split.length -1];    	
-    	JSONObject json = getJson(baseUrl + "users/search?q=" + username + "&client_id=" + clientId);
+    	JSONObject json = getJson(baseUrl + "users/search?q=" + username + "&client_id=" + Constants.INSTAGRAM_CLIENT_ID);
  
     	JSONArray users = (JSONArray)json.get("data");
     	String userid=null; //"253718685";
@@ -48,7 +44,7 @@ public class InstagramRetriever extends ChannelRetriever {
     		return;
     	}
      	// users/{user-id}/media/recent/?client_id=YOUR-CLIENT_ID
-    	json = getJson(baseUrl + "users/" + userid + "/media/recent/?count=30&client_id=" + clientId);
+    	json = getJson(baseUrl + "users/" + userid + "/media/recent/?count=30&client_id=" + Constants.INSTAGRAM_CLIENT_ID);
 
     	JSONArray posts = (JSONArray)json.get("data");
     	
