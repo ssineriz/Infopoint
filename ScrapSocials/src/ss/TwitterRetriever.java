@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map.Entry;
 
 import org.apache.http.client.ClientProtocolException;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 import twitter4j.MediaEntity;
@@ -23,10 +24,8 @@ import com.mongodb.DBObject;
 public class TwitterRetriever extends ChannelRetriever {
 
 	
-	public TwitterRetriever(String channel, String channelId, String channelName){
-		super(channel, channelId, channelName);
-	   	channelTypeId = 3;
-		channelType = "Twitter";
+	public TwitterRetriever(JSONObject channelObj){
+		super(channelObj);
 	}
 	
     public void execute(ExecutionContext ctx) throws IOException, ClientProtocolException, ParseException {

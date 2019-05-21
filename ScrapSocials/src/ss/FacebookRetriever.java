@@ -20,11 +20,8 @@ public class FacebookRetriever extends ChannelRetriever {
 	private String channelPath;
 
 	
-	public FacebookRetriever(String channel, String channelId, String channelName){
-		super(channel, channelId, channelName);
-	   	channelTypeId = 2;
-		channelType = "Facebook"; 
-
+	public FacebookRetriever(JSONObject channelObj){
+		super(channelObj);
     	String[] parts = channel.split("/");
     	this.channelPath = parts[parts.length -1];
     	initVideoTranscoder();

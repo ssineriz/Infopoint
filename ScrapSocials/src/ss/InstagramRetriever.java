@@ -18,10 +18,8 @@ public class InstagramRetriever extends ChannelRetriever {
 
 	final String baseUrl = "https://api.instagram.com/v1/";
 
-	public InstagramRetriever(String channel, String channelId, String channelName){
-		super(channel, channelId, channelName);
-	   	channelTypeId = 4;
-		channelType = "Instagram";
+	public InstagramRetriever(JSONObject channelObj){
+		super(channelObj);
 	}
 	
     public void execute(ExecutionContext ctx) throws IOException, ClientProtocolException, ParseException {

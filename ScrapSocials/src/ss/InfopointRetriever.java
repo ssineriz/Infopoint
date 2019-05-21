@@ -39,11 +39,8 @@ import com.mongodb.gridfs.GridFSInputFile;
 
 public class InfopointRetriever extends ChannelRetriever {
 	
-	public InfopointRetriever(String channel, String channelId, String channelName){
-		super(channel, channelId, channelName);
-	   	channelTypeId = 6;
-	   	channelType = "Infopoint";
-
+	public InfopointRetriever(JSONObject channelObj){
+		super(channelObj);
     	initVideoTranscoder();
 	}
 	

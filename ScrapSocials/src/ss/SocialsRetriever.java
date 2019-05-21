@@ -50,80 +50,47 @@ public class SocialsRetriever {
     		return;
     	}
     	JSONArray channels = (JSONArray)jsonResp.get("results");
-		Vector<InfopointRetriever> ir = new Vector<InfopointRetriever>();
-		Vector<TenarisTodayRetriever> tt = new Vector<TenarisTodayRetriever>();
-		Vector<FacebookRetriever> fb = new Vector<FacebookRetriever>();		
-		Vector<TwitterRetriever> tw = new Vector<TwitterRetriever>();
-		Vector<InstagramRetriever> ig = new Vector<InstagramRetriever>();
-
-			
+    	Vector<ChannelRetriever> retrievers = new Vector<ChannelRetriever>();
     	for(int i =0; i<channels.size(); i++){
     		JSONObject channel = (JSONObject) channels.get(i);
     		JSONObject channelType = (JSONObject) channel.get("ChannelType");
     		switch(Integer.parseInt(channelType.get("TypeId").toString())){
     			case 6:
-    				ir.add(new InfopointRetriever(channel.get("ChannelUrl").toString(), channel.get("Id").toString(), channel.get("ChannelName").toString()) );
+    				retrievers.add(new InfopointRetriever(channel));
     				break;
     			case 1:
-    				tt.add(new TenarisTodayRetriever(channel.get("ChannelUrl").toString(), channel.get("Id").toString(), channel.get("ChannelName").toString()) );
+    				// http://ggregator vs. http://tenaristoday
+    				if(channel.get("ChannelUrl").toString().startsWith("http://tenaristoday")) {
+    					retrievers.add(new TenarisTodayRssRetriever(channel));
+    				} else {
+    					retrievers.add(new TenarisTodayRetriever(channel));
+    				}
     				break;
     			case 2:
-    				fb.add(new FacebookRetriever(channel.get("ChannelUrl").toString(), channel.get("Id").toString(), channel.get("ChannelName").toString()) );
+    				retrievers.add(new FacebookRetriever(channel));
     				break;
     			case 3:
-    				tw.add(new TwitterRetriever(channel.get("ChannelUrl").toString(), channel.get("Id").toString(), channel.get("ChannelName").toString()) );
+    				retrievers.add(new TwitterRetriever(channel));
     				break;
     			case 4:
-    				ig.add(new InstagramRetriever(channel.get("ChannelUrl").toString(), channel.get("Id").toString(), channel.get("ChannelName").toString()) );
+    				retrievers.add(new InstagramRetriever(channel));
     				break;
     				/*
     			case 5:
-    				tt.add(new YoutubeRetriever(channel.get("ChannelUrl").toString(), channel.get("ChannelName").toString()) );
-    				break;*/    				
+    				retrievers.add(new YoutubeRetriever(channel.get("ChannelUrl").toString(), channel.get("ChannelName").toString()) );
+    				break;
+    				*/
     		}
     	
     	}
-
-    	for(InfopointRetriever r: ir){
-			log.info("Running Infopoint channel " + r.channelName);
+    	
+    	for(ChannelRetriever r: retrievers){
+			log.info("Running " + r.channelType + " channel " + r.channelName);
 			try{
 				r.execute(ctx);
 			} catch (Exception ex){
-				log.error("Infopoint Retriever", ex);
+				log.error(r.channelType + " Retriever", ex);
 			}
 		}
-		for(TenarisTodayRetriever r: tt){
-			log.info("Running TenarisToday channel " + r.channelName);
-			try{
-				r.execute(ctx);
-			} catch (Exception ex){
-				log.error("TenarisToday Retriever", ex);
-			}
-		}
-		for(FacebookRetriever r: fb){
-			log.info("Running Facebook channel " + r.channelName);
-			try{
-				r.execute(ctx);
-			} catch (Exception ex){
-				log.error("Facebook Retriever", ex);
-			}
-		}
-		for(TwitterRetriever r: tw){
-			log.info("Running Twitter channel " + r.channelName);
-			try{
-				r.execute(ctx);
-			} catch (Exception ex){
-				log.error("Twitter Retriever", ex);
-			}
-		}
-		for(InstagramRetriever r: ig){
-			log.info("Running Instagram channel " + r.channelName);
-			try{
-				r.execute(ctx);
-			} catch (Exception ex){
-				log.error("Instagram Retriever", ex);
-			}
-		}
-		
 	}
 }
