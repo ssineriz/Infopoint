@@ -87,10 +87,21 @@ public abstract class ChannelRetriever {
 	protected VideoAttributes video;
 	protected EncodingAttributes attrs;
 	
-	public ChannelRetriever(String channel, String channelId, String channelName){
+	public ChannelRetriever(JSONObject channel) {
+		this(
+				channel.get("ChannelUrl").toString(), 
+				channel.get("Id").toString(), 
+				channel.get("ChannelName").toString(), 
+				Integer.parseInt(((JSONObject) channel.get("ChannelType")).get("TypeId").toString()), 
+				((JSONObject) channel.get("ChannelType")).get("Title").toString());
+	}
+	
+	public ChannelRetriever(String channel, String channelId, String channelName, int channelTypeId, String channelType){
 		this.channel = channel;
 		this.channelId = channelId;
 		this.channelName = channelName;
+		this.channelTypeId = channelTypeId;
+		this.channelType = channelType;
 	   	client = new DefaultHttpClient();
 	   	outdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX");
 	}
@@ -332,4 +343,5 @@ public abstract class ChannelRetriever {
 		}
 		return true;
 	}
+		
 }
