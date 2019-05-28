@@ -26,6 +26,8 @@ import com.mongodb.DBObject;
 
 public class TenarisTodayRssRetriever extends ChannelRetriever {
 	
+	// public static final String AtomNS = "http://www.w3.org/2005/Atom";
+	
 	public TenarisTodayRssRetriever(JSONObject channelObj) {
 		super(channelObj);
     	initVideoTranscoder();
@@ -59,9 +61,10 @@ public class TenarisTodayRssRetriever extends ChannelRetriever {
     	fields.put("key", 1);
     	fields.put("Titulo", 1);
     	fields.put("Subtitulo", 1);
+    	fields.put("updated", 1);
+    	fields.put("enclosure", 1);
     	fields.put("v", 1);
     	fields.put("Foto_local", 1); // should delete images too
-    	fields.put("Miniatura_local", 1); // should delete images too
     	DBCursor cur = postsCollection.find(filter, fields);
     	HashMap<String, DBObject> current = new HashMap<String, DBObject>();
     	
@@ -82,12 +85,10 @@ public class TenarisTodayRssRetriever extends ChannelRetriever {
     		String objKey = channelTypeId + "/" + channelId + "/" + postId;
 
     		Element enclosure = (Element) post.getElementsByTagName("enclosure").item(0);
+    		String lastUpdate = post.getElementsByTagName("a10:updated").item(0).getTextContent();
     		if(current.containsKey(objKey)){
     			DBObject curr = current.remove(objKey);
-    			// No better versioning criteria
-   			
-    			if(areSameValues(curr, "Titulo", post, "title")
-    				&& areSameValues(curr, "Subtitulo", post, "description")){
+    			if(curr.containsField("updated") && curr.get("updated").toString().compareTo(lastUpdate) == 0){
     				if(!ctx.isRefreshImages()) {
     					if(enclosure == null && curr.get("Foto_local") == null
     							|| enclosure != null && enclosure.getAttribute("url") == curr.get("Foto_local")) {
@@ -114,6 +115,7 @@ public class TenarisTodayRssRetriever extends ChannelRetriever {
     		oPost.put("Subtitulo", post.getElementsByTagName("description").item(0).getTextContent());
     		oPost.put("Categoria", post.getElementsByTagName("category").item(0).getTextContent());
     		oPost.put("link", post.getElementsByTagName("link").item(0).getTextContent());
+    		oPost.put("updated", lastUpdate);
     		oPost.put("key", objKey);
     		oPost.put("channelType", channelTypeId);
     		oPost.put("channelId", channelId);
@@ -168,16 +170,4 @@ public class TenarisTodayRssRetriever extends ChannelRetriever {
     		postsCollection.remove(o);
     	}
     }
-    
-	private Boolean areSameValues(DBObject a, String akey, org.w3c.dom.Element b, String bkey){
-		if(a.containsField(akey)){
-			NodeList keyEls = b.getElementsByTagName(bkey);
-			if(keyEls.getLength() != 1) return false;
-			if(a.get(akey).toString().compareTo(keyEls.item(0).getTextContent().trim())!=0) return false;				
-		} else {
-			if(b.getElementsByTagName(bkey).getLength() == 1) return false;
-		}
-		return true;
-	}
-	
 }

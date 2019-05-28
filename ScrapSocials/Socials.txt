@@ -1,0 +1,94 @@
+Rest Calls
+
+  1.  Lista de noticias de TenarisToday:
+     *   Global: http://aggregator.tenaris.com/services/ObtenerNoticias.ashx?Email=pmirabella@tenaris.com&IdsVistas=1&ServiceUser=TsToday2014&ServicePassword=Y_s_T4120
+     *   Argentina: http://aggregator.tenaris.com/services/ObtenerNoticias.ashx?Email=pmirabella@tenaris.com&IdsVistas=2&ServiceUser=TsToday2014&ServicePassword=Y_s_T4120
+     *   M�xico: http://aggregator.tenaris.com/services/ObtenerNoticias.ashx?Email=pmirabella@tenaris.com&IdsVistas=3&ServiceUser=TsToday2014&ServicePassword=Y_s_T4120
+     *   Italia: http://aggregator.tenaris.com/services/ObtenerNoticias.ashx?Email=pmirabella@tenaris.com&IdsVistas=4&ServiceUser=TsToday2014&ServicePassword=Y_s_T4120
+     *   Brasil: http://aggregator.tenaris.com/services/ObtenerNoticias.ashx?Email=pmirabella@tenaris.com&IdsVistas=5&ServiceUser=TsToday2014&ServicePassword=Y_s_T4120
+     *   Regi�n andina: http://aggregator.tenaris.com/services/ObtenerNoticias.ashx?Email=pmirabella@tenaris.com&IdsVistas=6&ServiceUser=TsToday2014&ServicePassword=Y_s_T4120
+     *   Jap�n: http://aggregator.tenaris.com/services/ObtenerNoticias.ashx?Email=pmirabella@tenaris.com&IdsVistas=7&ServiceUser=TsToday2014&ServicePassword=Y_s_T4120
+     *   Rumania: http://aggregator.tenaris.com/services/ObtenerNoticias.ashx?Email=pmirabella@tenaris.com&IdsVistas=8&ServiceUser=TsToday2014&ServicePassword=Y_s_T4120
+     *   Canad�: http://aggregator.tenaris.com/services/ObtenerNoticias.ashx?Email=pmirabella@tenaris.com&IdsVistas=9&ServiceUser=TsToday2014&ServicePassword=Y_s_T4120
+     *   Estados Unidos: http://aggregator.tenaris.com/services/ObtenerNoticias.ashx?Email=pmirabella@tenaris.com&IdsVistas=10&ServiceUser=TsToday2014&ServicePassword=Y_s_T4120
+     *   Asica Pac�fico: http://aggregator.tenaris.com/services/ObtenerNoticias.ashx?Email=pmirabella@tenaris.com&IdsVistas=11&ServiceUser=TsToday2014&ServicePassword=Y_s_T4120
+  2.  Actualizaci�n General:
+     *   http://aggregator.tenaris.com/Services/ActualizacionGeneral.ashx?ServiceUser=TsToday2014&ServicePassword=Y_s_T4120
+     
+     
+{"Estado":{"Codigo":0,"Mensaje":""},
+"Informacion":
+	{"Categorias":[
+		{"Id":1,"Idioma":"en","Descripcion":"Investments"},
+		{"Id":2,"Idioma":"en","Descripcion":"Industrial"},
+		{"Id":3,"Idioma":"en","Descripcion":"Institutional"},
+		{"Id":4,"Idioma":"en","Descripcion":"HR"},
+		{"Id":5,"Idioma":"en","Descripcion":"Corporate News"},
+		{"Id":6,"Idioma":"en","Descripcion":"Market News General"},
+		{"Id":7,"Idioma":"en","Descripcion":"Market News Specific (Tenaris)"},
+		{"Id":8,"Idioma":"en","Descripcion":"R\u0026D - New Products"},
+		{"Id":9,"Idioma":"en","Descripcion":"Community"},
+		{"Id":10,"Idioma":"en","Descripcion":"Education"},
+		{"Id":11,"Idioma":"en","Descripcion":"Safety"},
+		{"Id":12,"Idioma":"en","Descripcion":"Environment"},
+		{"Id":13,"Idioma":"en","Descripcion":"People"},
+		{"Id":14,"Idioma":"en","Descripcion":"Interviews"},
+		{"Id":15,"Idioma":"en","Descripcion":"TGN"}],
+	"Vistas":[
+		{"Id":6,"Descripcion":"Andean Region"},
+		{"Id":2,"Descripcion":"Argentina"},
+		{"Id":11,"Descripcion":"Asia Pacific"},
+		{"Id":5,"Descripcion":"Brazil"},
+		{"Id":9,"Descripcion":"Canada"},
+		{"Id":1,"Descripcion":"Global"},
+		{"Id":4,"Descripcion":"Italy"},
+		{"Id":7,"Descripcion":"Japan"},
+		{"Id":3,"Descripcion":"Mexico"},
+		{"Id":8,"Descripcion":"Romania"},
+		{"Id":10,"Descripcion":"USA"}],
+	"Companias":[
+		{"Id":28,"IdVistaTsToday":1,"IdVistaFacebook":1,"IdVistaTwitter":1,"IdVistaYouTube":0,"IdVistaInstagram":0,"Descripcion":"Tenaris Africa \u0026 Middle East"},
+		{"Id":20,"IdVistaTsToday":6,"IdVistaFacebook":6,"IdVistaTwitter":6,"IdVistaYouTube":0,"IdVistaInstagram":0,"Descripcion":"Tenaris Andean Region"},
+		{"Id":17,"IdVistaTsToday":2,"IdVistaFacebook":2,"IdVistaTwitter":2,"IdVistaYouTube":0,"IdVistaInstagram":0,"Descripcion":"Tenaris Argentina"},
+		{"Id":21,"IdVistaTsToday":5,"IdVistaFacebook":5,"IdVistaTwitter":5,"IdVistaYouTube":0,"IdVistaInstagram":0,"Descripcion":"Tenaris Brasil"},
+		{"Id":22,"IdVistaTsToday":9,"IdVistaFacebook":9,"IdVistaTwitter":9,"IdVistaYouTube":0,"IdVistaInstagram":0,"Descripcion":"Tenaris Canada"},
+		{"Id":19,"IdVistaTsToday":11,"IdVistaFacebook":1,"IdVistaTwitter":1,"IdVistaYouTube":0,"IdVistaInstagram":0,"Descripcion":"Tenaris China"},
+		{"Id":16,"IdVistaTsToday":1,"IdVistaFacebook":1,"IdVistaTwitter":1,"IdVistaYouTube":1,"IdVistaInstagram":0,"Descripcion":"Tenaris Global"},
+		{"Id":18,"IdVistaTsToday":11,"IdVistaFacebook":1,"IdVistaTwitter":1,"IdVistaYouTube":0,"IdVistaInstagram":0,"Descripcion":"Tenaris Indonesia"},
+		{"Id":29,"IdVistaTsToday":4,"IdVistaFacebook":4,"IdVistaTwitter":4,"IdVistaYouTube":4,"IdVistaInstagram":0,"Descripcion":"Tenaris Italy"},
+		{"Id":24,"IdVistaTsToday":7,"IdVistaFacebook":7,"IdVistaTwitter":7,"IdVistaYouTube":0,"IdVistaInstagram":0,"Descripcion":"Tenaris Japan"},
+		{"Id":27,"IdVistaTsToday":3,"IdVistaFacebook":3,"IdVistaTwitter":3,"IdVistaYouTube":3,"IdVistaInstagram":0,"Descripcion":"Tenaris M�xico"},
+		{"Id":26,"IdVistaTsToday":8,"IdVistaFacebook":8,"IdVistaTwitter":8,"IdVistaYouTube":0,"IdVistaInstagram":0,"Descripcion":"Tenaris Rumania"},
+		{"Id":25,"IdVistaTsToday":10,"IdVistaFacebook":10,"IdVistaTwitter":10,"IdVistaYouTube":1,"IdVistaInstagram":0,"Descripcion":"Tenaris USA"}],
+	"RedesSociales":[
+		{"Id":1,"Url":"https://www.facebook.com/TenarisDalmine","Descripcion":"/TenarisDalmine","IdVista":4,"PrivateAccount":0},
+		{"Id":2,"Url":"https://www.facebook.com/TenarisEvents","Descripcion":"/Tenaris","IdVista":1,"PrivateAccount":0},
+		{"Id":3,"Url":"https://www.facebook.com/TenarisTamsa","Descripcion":"/TenarisTamsa","IdVista":3,"PrivateAccount":0},
+		{"Id":4,"Url":"https://www.facebook.com/TenarisAlgomaTubes","Descripcion":"/TenarisAlgomaTubes","IdVista":9,"PrivateAccount":0},
+		{"Id":5,"Url":"https://www.facebook.com/TenarisTuboCaribe","Descripcion":"/TenarisTuboCaribe","IdVista":6,"PrivateAccount":0},
+		{"Id":6,"Url":"https://www.facebook.com/TenarisPrudential","Descripcion":"/TenarisPrudential","IdVista":9,"PrivateAccount":0},
+		{"Id":7,"Url":"https://www.facebook.com/TenarisBayCity","Descripcion":"/TenarisBayCity","IdVista":10,"PrivateAccount":0},
+		{"Id":8,"Url":"https://www.facebook.com/TenarisHickman","Descripcion":"/TenarisHickman","IdVista":10,"PrivateAccount":0},
+		{"Id":9,"Url":"https://www.facebook.com/TenarisInTexas","Descripcion":"/TenarisInTexas","IdVista":10,"PrivateAccount":0},
+		{"Id":10,"Url":"https://www.facebook.com/ComunidadeTenaris","Descripcion":"/ComunidadeTenaris","IdVista":5,"PrivateAccount":0},
+		{"Id":11,"Url":"http://www.twitter.com/Tenaris","Descripcion":"@Tenaris","IdVista":6,"PrivateAccount":0},
+		{"Id":12,"Url":"http://www.twitter.com/TenarisTamsa","Descripcion":"@TenarisTamsa","IdVista":3,"PrivateAccount":0},
+		{"Id":13,"Url":"http://www.twitter.com/Tenaris_AR","Descripcion":"@Tenaris_AR","IdVista":2,"PrivateAccount":0},
+		{"Id":14,"Url":"https://www.youtube.com/tenaris","Descripcion":"Tenaris Channel","IdVista":6,"PrivateAccount":0},
+		{"Id":15,"Url":"http://www.facebook.com/SinCostura","Descripcion":"/SinCostura","IdVista":2,"PrivateAccount":0},
+		{"Id":16,"Url":"http://www.facebook.com/TenarisSilcotub","Descripcion":"/TenarisSilcoTub","IdVista":8,"PrivateAccount":0},
+		{"Id":17,"Url":"https://www.facebook.com/HumanitasMilano","Descripcion":"Humanitas Milano","IdVista":4,"PrivateAccount":0},
+		{"Id":18,"Url":"https://twitter.com/tenarisdalmine","Descripcion":"@TenarisDalmine","IdVista":4,"PrivateAccount":0},
+		{"Id":19,"Url":"https://www.youtube.com/channel/UC8clQbvFtmQyB-l0J0dB0HA","Descripcion":"TenarisDalmine","IdVista":4,"PrivateAccount":0},
+		{"Id":20,"Url":"https://www.youtube.com/channel/UCp-uNe46nN5zoNg2Pyi7TQA","Descripcion":"TenarisTamsa","IdVista":3,"PrivateAccount":0},
+		{"Id":21,"Url":"http://instagram.com/tenaristamsa","Descripcion":"TenarisTamsa Instagram","IdVista":3,"PrivateAccount":0},
+		{"Id":22,"Url":"https://twitter.com/TenarisToday","Descripcion":"@TenarisToday","IdVista":6,"PrivateAccount":0},
+		{"Id":23,"Url":"http://instagram.com/dalminenotizie","Descripcion":"DalmineNotizie","IdVista":4,"PrivateAccount":1},
+		{"Id":24,"Url":"https://twitter.com/tenaristodayITA","Descripcion":"@TenarisTodayITA","IdVista":4,"PrivateAccount":1},
+		{"Id":25,"Url":"https://www.youtube.com/channel/UCWfuk3FoaYcrAASMallNfyg","Descripcion":"Tenaris Argentina","IdVista":2,"PrivateAccount":0},
+		{"Id":26,"Url":"https://twitter.com/TenarisToday_ar","Descripcion":"TenarisToday Arg","IdVista":2,"PrivateAccount":1}]}}
+
+RSS Tenaris Today (XML)
+
+http://tenaristoday.[prod.]tenaris.net/<channel>/News/Feed.aspx?count=50
+Channels: Argentina, Global, USA, Romania, Italy, Japan, Brazil, Canada, AsiaPacific, AndeanRegion, Mexico
