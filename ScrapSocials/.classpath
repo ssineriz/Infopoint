@@ -13,6 +13,7 @@
 	<classpathentry kind="lib" path="lib/json-simple-1.1.1.jar"/>
 	<classpathentry kind="lib" path="lib/mongo-java-driver-2.9.3.jar"/>
 	<classpathentry kind="lib" path="D:/Projects/Java/ScrapSocials/lib/twitter4j-core-4.0.6.jar"/>
+	<classpathentry kind="lib" path="lib/javaxt-core.jar"/>
 	<classpathentry kind="var" path="ECLIPSE_WORKSPACE/.metadata/.plugins/org.wso2.developerstudio.eclipse.libraries/lib/commons-codec_1.4.0.wso2v1.jar"/>
 	<classpathentry kind="lib" path="D:/Projects/Java/libs/jave-1.0.2/jave-1.0.2/jave-1.0.2.jar"/>
 	<classpathentry kind="lib" path="D:/Projects/Java/libs/qrgen/core/2.1.0/core-2.1.0.jar"/>

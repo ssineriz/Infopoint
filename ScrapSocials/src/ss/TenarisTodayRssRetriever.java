@@ -31,6 +31,7 @@ public class TenarisTodayRssRetriever extends ChannelRetriever {
 	public TenarisTodayRssRetriever(JSONObject channelObj) {
 		super(channelObj);
     	initVideoTranscoder();
+    	this.shouldResample = true;
 	}
 	
     public void execute(ExecutionContext ctx) throws IOException, ClientProtocolException, ParseException {
@@ -90,8 +91,9 @@ public class TenarisTodayRssRetriever extends ChannelRetriever {
     			DBObject curr = current.remove(objKey);
     			if(curr.containsField("updated") && curr.get("updated").toString().compareTo(lastUpdate) == 0){
     				if(!ctx.isRefreshImages()) {
-    					if(enclosure == null && curr.get("Foto_local") == null
-    							|| enclosure != null && enclosure.getAttribute("url") == curr.get("Foto_local")) {
+    					if(enclosure == null && curr.get("Foto_local") == null 
+    							|| enclosure != null && curr.get("Foto_local") != null) {
+    						// assume image has not changed
 	    					log.info("Same version for " + objKey + ".F:" + curr.get("Foto_local"));
 	    					continue;
     					} else {

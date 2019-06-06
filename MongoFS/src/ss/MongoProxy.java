@@ -152,7 +152,7 @@ public class MongoProxy extends HttpServlet {
 				}
 				filter.append("$or", ors);
 			}
-			BasicDBObject excludeKeys = new BasicDBObject("$nin", Arrays.asList("1/17/2998", "1/3/2997", "1/4/4652"/*,...*/));  // take from some config
+			BasicDBObject excludeKeys = new BasicDBObject("$nin", Arrays.asList("1/44/78329", "1/44/78321"/*,...*/));  // take from some config
 			BasicDBObject filterExclude = new BasicDBObject("key", excludeKeys);
 			filter = new BasicDBObject("$and", Arrays.asList(filterExclude, filter));
 		}

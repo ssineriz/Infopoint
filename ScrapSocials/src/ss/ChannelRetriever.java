@@ -10,6 +10,7 @@ import it.sauronsoftware.jave.VideoSize;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -73,6 +74,7 @@ public abstract class ChannelRetriever {
 	protected CharsetDecoder utf8Decoder = Charset.forName("UTF-8").newDecoder();
 	protected DefaultHttpClient client;
 	protected DateFormat outdf;
+	protected boolean shouldResample = false;
 	
 	protected Mongo mongo;
 	protected DB mongoDb;
@@ -221,17 +223,64 @@ public abstract class ChannelRetriever {
 				return resp;
 			}
 			HttpResponse fresp = client.execute(req);
-			if(fresp.getStatusLine().getStatusCode()!=HttpStatus.SC_OK){
+			if(fresp.getStatusLine().getStatusCode() != HttpStatus.SC_OK){
 				// failed loading image
 	    		log.error("Http response " + fresp.getStatusLine().getStatusCode() + ":" + fresp.getStatusLine().getReasonPhrase() + " for image " + fullPath + " in channel " + channelType + "-" + channelName);
 	    		oPost.removeField(key + "_local");
 	    		req.releaseConnection();
 			} else {
-				GridFSInputFile gfsFile = gfsPhoto.createFile(fresp.getEntity().getContent(), imgKey, true);
-				gfsFile.save();
-				resp = gfsFile.getLength();
-//				log.info("File " + imgKey + ", Length:" + resp + ", "+ (resp*1000000/(System.nanoTime() - startNano))  + "KB/s");
-				oPost.put(key + "_local", imgKey);
+				String imgExt = ".jpg";
+				int eix = fileName.lastIndexOf('.');
+				if (eix > 0) {
+					imgExt = fileName.substring(eix);
+				}
+				InputStream initialStream = fresp.getEntity().getContent();
+				if(shouldResample && ".jpg.gif.tif.tiff.png.jpeg".indexOf(imgExt) >= 0) {
+					// Temp file for image.
+					File temp = File.createTempFile("img", imgExt); 
+				    OutputStream tempStream = new FileOutputStream(temp);
+				 
+				    byte[] buffer = new byte[8 * 1024];
+				    int bytesRead;
+				    while ((bytesRead = initialStream.read(buffer)) != -1) {
+				    	tempStream.write(buffer, 0, bytesRead);
+				    }
+				    tempStream.close();
+				    FileInputStream imgStream = null;
+				    File tempDs = null;
+					// Check image size (bytes, width, height, dpi), and clash to [MAX_WIDTH, MAX_HEIGHT, MAX_DPI (72)]
+					javaxt.io.Image image = new javaxt.io.Image(temp);
+					if(image.getHeight() > HEIGHT || image.getWidth() > WIDTH) {
+						tempDs = File.createTempFile("img", imgExt);
+						if( (image.getHeight() / HEIGHT) > (image.getWidth() / WIDTH) && image.getWidth() > WIDTH ) {
+							image.resize(WIDTH, HEIGHT, true);						
+						} else {
+							image.setHeight(HEIGHT);
+						}
+						image.setOutputQuality(100f);
+						image.saveAs(tempDs);
+						imgStream = new FileInputStream(tempDs);
+					} else {
+						imgStream = new FileInputStream(temp);
+					}
+					GridFSInputFile gfsFile = gfsPhoto.createFile(imgStream, imgKey, true);
+					gfsFile.save();
+					imgStream.close();
+					resp = gfsFile.getLength();
+	//				log.info("File " + imgKey + ", Length:" + resp + ", "+ (resp*1000000/(System.nanoTime() - startNano))  + "KB/s");
+					oPost.put(key + "_local", imgKey);
+					temp.deleteOnExit();
+					if(tempDs != null) {
+						tempDs.deleteOnExit();
+					}
+				} else {
+					// no resample					
+					GridFSInputFile gfsFile = gfsPhoto.createFile(fresp.getEntity().getContent(), imgKey, true);
+					gfsFile.save();
+					resp = gfsFile.getLength();
+	//				log.info("File " + imgKey + ", Length:" + resp + ", "+ (resp*1000000/(System.nanoTime() - startNano))  + "KB/s");
+					oPost.put(key + "_local", imgKey);
+				}
 			}
 		} else {			
 			resp = olds.get(0).getLength();

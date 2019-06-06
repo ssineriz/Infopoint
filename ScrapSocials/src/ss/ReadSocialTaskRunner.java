@@ -5,10 +5,12 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import org.apache.http.client.ClientProtocolException;
+// import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 public class ReadSocialTaskRunner {
 
+	// @SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		boolean refreshImages = false;
 		if(Arrays.asList(args).contains("watchdog")) {
@@ -28,6 +30,7 @@ public class ReadSocialTaskRunner {
 			obj.put("Id", "1");
 			obj.put("ChannelName", "TTArgentina");
 			obj.put("ChannelType", type);
+			refreshImages = true;
 			*/
 			//new Watchdog().CheckNodes();
 			//new InstagramRetriever("http://instagram.com/tenaristamsa", "4", "TenarisTamsa Instagram").execute(new ExecutionContext().setRefreshImages(refreshImages));

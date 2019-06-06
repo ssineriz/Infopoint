@@ -22,6 +22,7 @@ public class TenarisTodayRetriever extends ChannelRetriever {
 	public TenarisTodayRetriever(JSONObject channelObj) {
 		super(channelObj);
     	initVideoTranscoder();
+    	this.shouldResample = true;
 	}
 	
     public void execute(ExecutionContext ctx) throws IOException, ClientProtocolException, ParseException {

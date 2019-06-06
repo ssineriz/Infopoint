@@ -42,6 +42,7 @@ public class InfopointRetriever extends ChannelRetriever {
 	public InfopointRetriever(JSONObject channelObj){
 		super(channelObj);
     	initVideoTranscoder();
+    	this.shouldResample = true;
 	}
 	
     public void execute(ExecutionContext ctx) throws IOException, ClientProtocolException, ParseException {

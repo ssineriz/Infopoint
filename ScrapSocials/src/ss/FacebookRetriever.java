@@ -18,7 +18,6 @@ import com.mongodb.DBObject;
 public class FacebookRetriever extends ChannelRetriever {
 	final String baseUrl = "https://graph.facebook.com/v2.9/";
 	private String channelPath;
-
 	
 	public FacebookRetriever(JSONObject channelObj){
 		super(channelObj);
